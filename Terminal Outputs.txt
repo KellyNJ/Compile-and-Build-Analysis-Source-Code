@@ -1,0 +1,466 @@
+Microsoft Windows [Version 10.0.26100.6584]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Noah->cd "C:\Users\Noah-\OneDrive\Franciscan University of Steubenville\Fall 2025\Cybersecurity III - Software & Security\Virtual Danger Lab\Compile and Build Analysis"
+
+C:\Users\Noah-\OneDrive\Franciscan University of Steubenville\Fall 2025\Cybersecurity III - Software & Security\Virtual Danger Lab\Compile and Build Analysis>gcc -D_USE_MATH_DEFINES -Wall -Wextra -Wpedantic -Wformat=2 -Wunused -Wuninitialized -Wstrict-prototypes -Wcast-align -Wwrite-strings -Wconversion -Wshadow -std=c99 -g -o forward_sample.exe forward_sample.c
+In file included from forward_sample.c:3:
+struct.h: In function 'setup_model_parameter':
+struct.h:29:72: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+   29 |     if((model_parameter.N_unit = (int *)malloc((model_parameter.L + 1) * sizeof(int))) == NULL) {
+      |                                                                        ^
+struct.h:36:114: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+   36 |     if((model_parameter.activation = (float * (**)(float *, int,  int,  float **))malloc((model_parameter.L + 2) * sizeof(float (**)(float *, int,  int,  float **)))) == NULL) {
+      |                                                                                                                  ^
+In file included from parameters.h:2,
+                 from forward_sample.c:5:
+utils.h: In function 'rand_uniform':
+utils.h:14:15: warning: conversion from 'double' to 'float' may change value [-Wfloat-conversion]
+   14 |     float x = ((float)rand() + 1.0)/((float)RAND_MAX + 2.0);
+      |               ^
+utils.h: In function 'rand_normal':
+utils.h:19:27: warning: conversion from 'double' to 'float' may change value [-Wfloat-conversion]
+   19 |     float z = sqrtf(- 2.0 * logf(rand_uniform(0.0f, 1.0f))) * sinf(2.0 * M_PI * rand_uniform(0.0f, 1.0f));
+      |                     ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+utils.h:19:79: warning: conversion from 'double' to 'float' may change value [-Wfloat-conversion]
+   19 |     float z = sqrtf(- 2.0 * logf(rand_uniform(0.0f, 1.0f))) * sinf(2.0 * M_PI * rand_uniform(0.0f, 1.0f));
+      |                                                                    ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+parameters.h: In function 'setup_parameters':
+parameters.h:30:58: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+   30 |     if((x = (float *)malloc((model_parameter.dim_in + 1) * sizeof(float))) == NULL) {
+      |                                                          ^
+parameters.h:39:39: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+   39 |     if((w = (float ***)malloc((L + 1) * sizeof(float **))) == NULL) {
+      |                                       ^
+parameters.h:49:49: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+   49 |         if((w[l] = (float **)malloc((d_max + 1) * sizeof(float *))) == NULL) {
+      |                                                 ^
+parameters.h:54:62: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+   54 |             if((w[l][i] = (float *)malloc((d_next_layer + 1) * sizeof(float))) == NULL) {
+      |                                                              ^
+parameters.h:66:38: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+   66 |     if((z = (float **)malloc((L + 1) * sizeof(float *))) == NULL) {
+      |                                      ^
+parameters.h:73:48: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+   73 |         if((z[l] = (float *)malloc((d_max + 1) * sizeof(float))) == NULL) {
+      |                                                ^
+parameters.h:83:38: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+   83 |     if((a = (float **)malloc((L + 2) * sizeof(float *))) == NULL) {
+      |                                      ^
+parameters.h:90:48: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+   90 |         if((a[l] = (float *)malloc((d_max + 1) * sizeof(float))) == NULL) {
+      |                                                ^
+parameters.h:99:44: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+   99 |     if((a[L + 1] = (float *)malloc((K + 1) * sizeof(float))) == NULL) {
+      |                                            ^
+parameters.h:108:37: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  108 |     if((y = (float *)malloc((K + 1) * sizeof(float))) == NULL) {
+      |                                     ^
+parameters.h:117:37: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  117 |     if((t = (float *)malloc((K + 1) * sizeof(float))) == NULL) {
+      |                                     ^
+parameters.h:126:43: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  126 |     if((dE_dw = (float ***)malloc((L + 1) * sizeof(float **))) == NULL || (dE_dw_total = (float ***)malloc((L + 1) * sizeof(float **))) == NULL) {
+      |                                           ^
+parameters.h:126:116: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  126 |     if((dE_dw = (float ***)malloc((L + 1) * sizeof(float **))) == NULL || (dE_dw_total = (float ***)malloc((L + 1) * sizeof(float **))) == NULL) {
+      |                                                                                                                    ^
+parameters.h:134:53: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  134 |         if((dE_dw[l] = (float **)malloc((d_max + 1) * sizeof(float *))) == NULL || (dE_dw_total[l] = (float **)malloc((d_max + 1) * sizeof(float *))) == NULL) {
+      |                                                     ^
+parameters.h:134:131: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  134 |         if((dE_dw[l] = (float **)malloc((d_max + 1) * sizeof(float *))) == NULL || (dE_dw_total[l] = (float **)malloc((d_max + 1) * sizeof(float *))) == NULL) {
+      |                                                                                                                                   ^
+parameters.h:139:66: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  139 |             if((dE_dw[l][i] = (float *)malloc((d_next_layer + 1) * sizeof(float))) == NULL || (dE_dw_total[l][i] = (float *)malloc((d_next_layer + 1) * sizeof(float))) == NULL) {
+      |                                                                  ^
+parameters.h:139:151: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  139 |             if((dE_dw[l][i] = (float *)malloc((d_next_layer + 1) * sizeof(float))) == NULL || (dE_dw_total[l][i] = (float *)malloc((d_next_layer + 1) * sizeof(float))) == NULL) {
+      |                                                                                                                                                       ^
+parameters.h:151:42: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  151 |     if((dE_da = (float **)malloc((L + 2) * sizeof(float *))) == NULL) {
+      |                                          ^
+parameters.h:158:52: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  158 |         if((dE_da[l] = (float *)malloc((d_max + 1) * sizeof(float))) == NULL) {
+      |                                                    ^
+parameters.h:167:48: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  167 |     if((dE_da[L + 1] = (float *)malloc((K + 1) * sizeof(float))) == NULL) {
+      |                                                ^
+In file included from forward_sample.c:6:
+activation_function.h: In function 'step':
+activation_function.h:9:20: warning: declaration of 'a' shadows a global declaration [-Wshadow]
+    9 | float *step(float *a, int D, int derivative, float **derivative_matrix) {
+      |             ~~~~~~~^
+parameters.h:11:9: note: shadowed declaration is here
+   11 | float **a = NULL;
+      |         ^
+activation_function.h:9:27: warning: declaration of 'D' shadows a global declaration [-Wshadow]
+    9 | float *step(float *a, int D, int derivative, float **derivative_matrix) {
+      |                       ~~~~^
+parameters.h:8:6: note: shadowed declaration is here
+    8 | int *D = NULL;
+      |      ^
+activation_function.h:11:12: warning: declaration of 'z' shadows a global declaration [-Wshadow]
+   11 |     float *z = NULL;
+      |            ^
+parameters.h:10:9: note: shadowed declaration is here
+   10 | float **z = NULL;
+      |         ^
+activation_function.h:22:37: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+   22 |     if((z = (float *)malloc((D + 1) * sizeof(float))) == NULL) {
+      |                                     ^
+activation_function.h: In function 'ReLU':
+activation_function.h:39:20: warning: declaration of 'a' shadows a global declaration [-Wshadow]
+   39 | float *ReLU(float *a, int D, int derivative, float **derivative_matrix) {
+      |             ~~~~~~~^
+parameters.h:11:9: note: shadowed declaration is here
+   11 | float **a = NULL;
+      |         ^
+activation_function.h:39:27: warning: declaration of 'D' shadows a global declaration [-Wshadow]
+   39 | float *ReLU(float *a, int D, int derivative, float **derivative_matrix) {
+      |                       ~~~~^
+parameters.h:8:6: note: shadowed declaration is here
+    8 | int *D = NULL;
+      |      ^
+activation_function.h:41:12: warning: declaration of 'z' shadows a global declaration [-Wshadow]
+   41 |     float *z = NULL;
+      |            ^
+parameters.h:10:9: note: shadowed declaration is here
+   10 | float **z = NULL;
+      |         ^
+activation_function.h:59:37: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+   59 |     if((z = (float *)malloc((D + 1) * sizeof(float))) == NULL) {
+      |                                     ^
+activation_function.h: In function 'sigmoid':
+activation_function.h:76:23: warning: declaration of 'a' shadows a global declaration [-Wshadow]
+   76 | float *sigmoid(float *a, int D, int derivative, float **derivative_matrix) {
+      |                ~~~~~~~^
+parameters.h:11:9: note: shadowed declaration is here
+   11 | float **a = NULL;
+      |         ^
+activation_function.h:76:30: warning: declaration of 'D' shadows a global declaration [-Wshadow]
+   76 | float *sigmoid(float *a, int D, int derivative, float **derivative_matrix) {
+      |                          ~~~~^
+parameters.h:8:6: note: shadowed declaration is here
+    8 | int *D = NULL;
+      |      ^
+activation_function.h:78:12: warning: declaration of 'z' shadows a global declaration [-Wshadow]
+   78 |     float *z = NULL;
+      |            ^
+parameters.h:10:9: note: shadowed declaration is here
+   10 | float **z = NULL;
+      |         ^
+activation_function.h:80:37: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+   80 |     if((z = (float *)malloc((D + 1) * sizeof(float))) == NULL) {
+      |                                     ^
+activation_function.h: In function 'softmax':
+activation_function.h:107:23: warning: declaration of 'a' shadows a global declaration [-Wshadow]
+  107 | float *softmax(float *a, int K, int derivative, float **derivative_matrix) {
+      |                ~~~~~~~^
+parameters.h:11:9: note: shadowed declaration is here
+   11 | float **a = NULL;
+      |         ^
+activation_function.h:109:12: warning: declaration of 'y' shadows a global declaration [-Wshadow]
+  109 |     float *y = NULL;
+      |            ^
+parameters.h:12:8: note: shadowed declaration is here
+   12 | float *y = NULL;
+      |        ^
+activation_function.h:113:37: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  113 |     if((y = (float *)malloc((K + 1) * sizeof(float))) == NULL) {
+      |                                     ^
+In file included from forward_sample.c:7:
+loss_function.h: At top level:
+loss_function.h:3:13: warning: conversion from 'double' to 'float' changes value from '9.9999999999999998e-13' to '9.99999996e-13f' [-Wfloat-conversion]
+    3 | float EPS = 1e-12;
+      |             ^~~~~
+loss_function.h: In function 'mean_squared_error':
+loss_function.h:8:33: warning: declaration of 'y' shadows a global declaration [-Wshadow]
+    8 | float mean_squared_error(float *y, float *t, int D, int derivative, float *dE_dy) {
+      |                          ~~~~~~~^
+parameters.h:12:8: note: shadowed declaration is here
+   12 | float *y = NULL;
+      |        ^
+loss_function.h:8:43: warning: declaration of 't' shadows a global declaration [-Wshadow]
+    8 | float mean_squared_error(float *y, float *t, int D, int derivative, float *dE_dy) {
+      |                                    ~~~~~~~^
+parameters.h:13:8: note: shadowed declaration is here
+   13 | float *t = NULL;
+      |        ^
+loss_function.h:8:50: warning: declaration of 'D' shadows a global declaration [-Wshadow]
+    8 | float mean_squared_error(float *y, float *t, int D, int derivative, float *dE_dy) {
+      |                                              ~~~~^
+parameters.h:8:6: note: shadowed declaration is here
+    8 | int *D = NULL;
+      |      ^
+loss_function.h: In function 'cross_entropy':
+loss_function.h:28:28: warning: declaration of 'y' shadows a global declaration [-Wshadow]
+   28 | float cross_entropy(float *y, float *t, int K, int derivative, float *dE_dy) {
+      |                     ~~~~~~~^
+parameters.h:12:8: note: shadowed declaration is here
+   12 | float *y = NULL;
+      |        ^
+loss_function.h:28:38: warning: declaration of 't' shadows a global declaration [-Wshadow]
+   28 | float cross_entropy(float *y, float *t, int K, int derivative, float *dE_dy) {
+      |                               ~~~~~~~^
+parameters.h:13:8: note: shadowed declaration is here
+   13 | float *t = NULL;
+      |        ^
+forward_sample.c: In function 'loda_data':
+forward_sample.c:64:39: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+   64 |     if((data = (DATA *)malloc((N + 1) * sizeof(DATA))) == NULL) {
+      |                                       ^
+
+C:\Users\Noah-\OneDrive\Franciscan University of Steubenville\Fall 2025\Cybersecurity III - Software & Security\Virtual Danger Lab\Compile and Build Analysis>gcc -D_USE_MATH_DEFINES -Wall -Wextra -Wpedantic -Wformat=2 -Wunused -Wuninitialized -Wstrict-prototypes -Wcast-align -Wwrite-strings -Wconversion -Wshadow -std=c99 -g -o main_batch_training.exe main_batch_training.c
+In file included from main_batch_training.c:3:
+struct.h: In function 'setup_model_parameter':
+struct.h:29:72: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+   29 |     if((model_parameter.N_unit = (int *)malloc((model_parameter.L + 1) * sizeof(int))) == NULL) {
+      |                                                                        ^
+struct.h:36:114: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+   36 |     if((model_parameter.activation = (float * (**)(float *, int,  int,  float **))malloc((model_parameter.L + 2) * sizeof(float (**)(float *, int,  int,  float **)))) == NULL) {
+      |                                                                                                                  ^
+In file included from parameters.h:2,
+                 from main_batch_training.c:5:
+utils.h: In function 'rand_uniform':
+utils.h:14:15: warning: conversion from 'double' to 'float' may change value [-Wfloat-conversion]
+   14 |     float x = ((float)rand() + 1.0)/((float)RAND_MAX + 2.0);
+      |               ^
+utils.h: In function 'rand_normal':
+utils.h:19:27: warning: conversion from 'double' to 'float' may change value [-Wfloat-conversion]
+   19 |     float z = sqrtf(- 2.0 * logf(rand_uniform(0.0f, 1.0f))) * sinf(2.0 * M_PI * rand_uniform(0.0f, 1.0f));
+      |                     ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+utils.h:19:79: warning: conversion from 'double' to 'float' may change value [-Wfloat-conversion]
+   19 |     float z = sqrtf(- 2.0 * logf(rand_uniform(0.0f, 1.0f))) * sinf(2.0 * M_PI * rand_uniform(0.0f, 1.0f));
+      |                                                                    ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+parameters.h: In function 'setup_parameters':
+parameters.h:30:58: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+   30 |     if((x = (float *)malloc((model_parameter.dim_in + 1) * sizeof(float))) == NULL) {
+      |                                                          ^
+parameters.h:39:39: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+   39 |     if((w = (float ***)malloc((L + 1) * sizeof(float **))) == NULL) {
+      |                                       ^
+parameters.h:49:49: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+   49 |         if((w[l] = (float **)malloc((d_max + 1) * sizeof(float *))) == NULL) {
+      |                                                 ^
+parameters.h:54:62: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+   54 |             if((w[l][i] = (float *)malloc((d_next_layer + 1) * sizeof(float))) == NULL) {
+      |                                                              ^
+parameters.h:66:38: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+   66 |     if((z = (float **)malloc((L + 1) * sizeof(float *))) == NULL) {
+      |                                      ^
+parameters.h:73:48: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+   73 |         if((z[l] = (float *)malloc((d_max + 1) * sizeof(float))) == NULL) {
+      |                                                ^
+parameters.h:83:38: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+   83 |     if((a = (float **)malloc((L + 2) * sizeof(float *))) == NULL) {
+      |                                      ^
+parameters.h:90:48: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+   90 |         if((a[l] = (float *)malloc((d_max + 1) * sizeof(float))) == NULL) {
+      |                                                ^
+parameters.h:99:44: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+   99 |     if((a[L + 1] = (float *)malloc((K + 1) * sizeof(float))) == NULL) {
+      |                                            ^
+parameters.h:108:37: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  108 |     if((y = (float *)malloc((K + 1) * sizeof(float))) == NULL) {
+      |                                     ^
+parameters.h:117:37: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  117 |     if((t = (float *)malloc((K + 1) * sizeof(float))) == NULL) {
+      |                                     ^
+parameters.h:126:43: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  126 |     if((dE_dw = (float ***)malloc((L + 1) * sizeof(float **))) == NULL || (dE_dw_total = (float ***)malloc((L + 1) * sizeof(float **))) == NULL) {
+      |                                           ^
+parameters.h:126:116: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  126 |     if((dE_dw = (float ***)malloc((L + 1) * sizeof(float **))) == NULL || (dE_dw_total = (float ***)malloc((L + 1) * sizeof(float **))) == NULL) {
+      |                                                                                                                    ^
+parameters.h:134:53: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  134 |         if((dE_dw[l] = (float **)malloc((d_max + 1) * sizeof(float *))) == NULL || (dE_dw_total[l] = (float **)malloc((d_max + 1) * sizeof(float *))) == NULL) {
+      |                                                     ^
+parameters.h:134:131: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  134 |         if((dE_dw[l] = (float **)malloc((d_max + 1) * sizeof(float *))) == NULL || (dE_dw_total[l] = (float **)malloc((d_max + 1) * sizeof(float *))) == NULL) {
+      |                                                                                                                                   ^
+parameters.h:139:66: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  139 |             if((dE_dw[l][i] = (float *)malloc((d_next_layer + 1) * sizeof(float))) == NULL || (dE_dw_total[l][i] = (float *)malloc((d_next_layer + 1) * sizeof(float))) == NULL) {
+      |                                                                  ^
+parameters.h:139:151: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  139 |             if((dE_dw[l][i] = (float *)malloc((d_next_layer + 1) * sizeof(float))) == NULL || (dE_dw_total[l][i] = (float *)malloc((d_next_layer + 1) * sizeof(float))) == NULL) {
+      |                                                                                                                                                       ^
+parameters.h:151:42: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  151 |     if((dE_da = (float **)malloc((L + 2) * sizeof(float *))) == NULL) {
+      |                                          ^
+parameters.h:158:52: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  158 |         if((dE_da[l] = (float *)malloc((d_max + 1) * sizeof(float))) == NULL) {
+      |                                                    ^
+parameters.h:167:48: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  167 |     if((dE_da[L + 1] = (float *)malloc((K + 1) * sizeof(float))) == NULL) {
+      |                                                ^
+In file included from main_batch_training.c:6:
+activation_function.h: In function 'step':
+activation_function.h:9:20: warning: declaration of 'a' shadows a global declaration [-Wshadow]
+    9 | float *step(float *a, int D, int derivative, float **derivative_matrix) {
+      |             ~~~~~~~^
+parameters.h:11:9: note: shadowed declaration is here
+   11 | float **a = NULL;
+      |         ^
+activation_function.h:9:27: warning: declaration of 'D' shadows a global declaration [-Wshadow]
+    9 | float *step(float *a, int D, int derivative, float **derivative_matrix) {
+      |                       ~~~~^
+parameters.h:8:6: note: shadowed declaration is here
+    8 | int *D = NULL;
+      |      ^
+activation_function.h:11:12: warning: declaration of 'z' shadows a global declaration [-Wshadow]
+   11 |     float *z = NULL;
+      |            ^
+parameters.h:10:9: note: shadowed declaration is here
+   10 | float **z = NULL;
+      |         ^
+activation_function.h:22:37: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+   22 |     if((z = (float *)malloc((D + 1) * sizeof(float))) == NULL) {
+      |                                     ^
+activation_function.h: In function 'ReLU':
+activation_function.h:39:20: warning: declaration of 'a' shadows a global declaration [-Wshadow]
+   39 | float *ReLU(float *a, int D, int derivative, float **derivative_matrix) {
+      |             ~~~~~~~^
+parameters.h:11:9: note: shadowed declaration is here
+   11 | float **a = NULL;
+      |         ^
+activation_function.h:39:27: warning: declaration of 'D' shadows a global declaration [-Wshadow]
+   39 | float *ReLU(float *a, int D, int derivative, float **derivative_matrix) {
+      |                       ~~~~^
+parameters.h:8:6: note: shadowed declaration is here
+    8 | int *D = NULL;
+      |      ^
+activation_function.h:41:12: warning: declaration of 'z' shadows a global declaration [-Wshadow]
+   41 |     float *z = NULL;
+      |            ^
+parameters.h:10:9: note: shadowed declaration is here
+   10 | float **z = NULL;
+      |         ^
+activation_function.h:59:37: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+   59 |     if((z = (float *)malloc((D + 1) * sizeof(float))) == NULL) {
+      |                                     ^
+activation_function.h: In function 'sigmoid':
+activation_function.h:76:23: warning: declaration of 'a' shadows a global declaration [-Wshadow]
+   76 | float *sigmoid(float *a, int D, int derivative, float **derivative_matrix) {
+      |                ~~~~~~~^
+parameters.h:11:9: note: shadowed declaration is here
+   11 | float **a = NULL;
+      |         ^
+activation_function.h:76:30: warning: declaration of 'D' shadows a global declaration [-Wshadow]
+   76 | float *sigmoid(float *a, int D, int derivative, float **derivative_matrix) {
+      |                          ~~~~^
+parameters.h:8:6: note: shadowed declaration is here
+    8 | int *D = NULL;
+      |      ^
+activation_function.h:78:12: warning: declaration of 'z' shadows a global declaration [-Wshadow]
+   78 |     float *z = NULL;
+      |            ^
+parameters.h:10:9: note: shadowed declaration is here
+   10 | float **z = NULL;
+      |         ^
+activation_function.h:80:37: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+   80 |     if((z = (float *)malloc((D + 1) * sizeof(float))) == NULL) {
+      |                                     ^
+activation_function.h: In function 'softmax':
+activation_function.h:107:23: warning: declaration of 'a' shadows a global declaration [-Wshadow]
+  107 | float *softmax(float *a, int K, int derivative, float **derivative_matrix) {
+      |                ~~~~~~~^
+parameters.h:11:9: note: shadowed declaration is here
+   11 | float **a = NULL;
+      |         ^
+activation_function.h:109:12: warning: declaration of 'y' shadows a global declaration [-Wshadow]
+  109 |     float *y = NULL;
+      |            ^
+parameters.h:12:8: note: shadowed declaration is here
+   12 | float *y = NULL;
+      |        ^
+activation_function.h:113:37: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  113 |     if((y = (float *)malloc((K + 1) * sizeof(float))) == NULL) {
+      |                                     ^
+In file included from main_batch_training.c:7:
+loss_function.h: At top level:
+loss_function.h:3:13: warning: conversion from 'double' to 'float' changes value from '9.9999999999999998e-13' to '9.99999996e-13f' [-Wfloat-conversion]
+    3 | float EPS = 1e-12;
+      |             ^~~~~
+loss_function.h: In function 'mean_squared_error':
+loss_function.h:8:33: warning: declaration of 'y' shadows a global declaration [-Wshadow]
+    8 | float mean_squared_error(float *y, float *t, int D, int derivative, float *dE_dy) {
+      |                          ~~~~~~~^
+parameters.h:12:8: note: shadowed declaration is here
+   12 | float *y = NULL;
+      |        ^
+loss_function.h:8:43: warning: declaration of 't' shadows a global declaration [-Wshadow]
+    8 | float mean_squared_error(float *y, float *t, int D, int derivative, float *dE_dy) {
+      |                                    ~~~~~~~^
+parameters.h:13:8: note: shadowed declaration is here
+   13 | float *t = NULL;
+      |        ^
+loss_function.h:8:50: warning: declaration of 'D' shadows a global declaration [-Wshadow]
+    8 | float mean_squared_error(float *y, float *t, int D, int derivative, float *dE_dy) {
+      |                                              ~~~~^
+parameters.h:8:6: note: shadowed declaration is here
+    8 | int *D = NULL;
+      |      ^
+loss_function.h: In function 'cross_entropy':
+loss_function.h:28:28: warning: declaration of 'y' shadows a global declaration [-Wshadow]
+   28 | float cross_entropy(float *y, float *t, int K, int derivative, float *dE_dy) {
+      |                     ~~~~~~~^
+parameters.h:12:8: note: shadowed declaration is here
+   12 | float *y = NULL;
+      |        ^
+loss_function.h:28:38: warning: declaration of 't' shadows a global declaration [-Wshadow]
+   28 | float cross_entropy(float *y, float *t, int K, int derivative, float *dE_dy) {
+      |                               ~~~~~~~^
+parameters.h:13:8: note: shadowed declaration is here
+   13 | float *t = NULL;
+      |        ^
+main_batch_training.c: In function 'main':
+main_batch_training.c:61:82: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+   61 |         printf("\tloss: %f, accuracy: %f", E_total / (float) N_train, true_count / (float) N_train);
+      |                                                                                  ^
+main_batch_training.c:65:127: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+   65 |         printf("\tvalidation loss: %f, validation accuracy: %f\n", metrics.E_total / (float) N_validation, metrics.true_count / (float) N_validation);
+      |                                                                                                                               ^
+main_batch_training.c:71:51: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+   71 |     printf("\taccuracy: %f\n", metrics.true_count / (float) N_test);
+      |                                                   ^
+main_batch_training.c: In function 'train_per_batch':
+main_batch_training.c:151:43: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  151 |     metrics.accuracy = metrics.true_count / (float) N_train;
+      |                                           ^
+main_batch_training.c: In function 'validate_per_batch':
+main_batch_training.c:193:43: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  193 |     metrics.accuracy = metrics.true_count / (float) N_validation;
+      |                                           ^
+main_batch_training.c: In function 'test_per_batch':
+main_batch_training.c:235:43: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  235 |     metrics.accuracy = metrics.true_count / (float) N_test;
+      |                                           ^
+main_batch_training.c: In function 'backward':
+main_batch_training.c:298:41: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  298 |     if((dE_dy = (float *)malloc((K + 1) * sizeof(float))) == NULL) {
+      |                                         ^
+main_batch_training.c:310:42: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  310 |     if((dy_da = (float **)malloc((K + 1) * sizeof(float *))) == NULL) {
+      |                                          ^
+main_batch_training.c:315:48: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  315 |         if((dy_da[k] = (float *)malloc((K + 1) * sizeof(float))) == NULL) {
+      |                                                ^
+main_batch_training.c:359:50: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  359 |         if((dz_da = (float **)malloc((d_max + 1) * sizeof(float *))) == NULL) {
+      |                                                  ^
+main_batch_training.c:364:56: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  364 |             if((dz_da[i] = (float *)malloc((d_max + 1) * sizeof(float))) == NULL) {
+      |                                                        ^
+main_batch_training.c:402:17: warning: conversion from 'float' to 'int' may change value [-Wfloat-conversion]
+  402 |         z_0_i = z[0][i];
+      |                 ^
+main_batch_training.c:404:36: warning: conversion from 'int' to 'float' may change value [-Wconversion]
+  404 |             dE_dw[0][i][j] = z_0_i * dE_da[1][j];
+      |                                    ^
+main_batch_training.c: In function 'loda_data':
+main_batch_training.c:438:39: warning: conversion to 'long long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  438 |     if((data = (DATA *)malloc((N + 1) * sizeof(DATA))) == NULL) {
+      |                                       ^
+
+C:\Users\Noah-\OneDrive\Franciscan University of Steubenville\Fall 2025\Cybersecurity III - Software & Security\Virtual Danger Lab\Compile and Build Analysis>
